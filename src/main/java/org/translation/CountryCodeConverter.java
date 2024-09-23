@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * This class provides the service of converting country codes to their names.
  */
-public class  CountryCodeConverter {
+public class CountryCodeConverter {
 
     // TODO Task: pick appropriate instance variable(s) to store the data necessary for this class
     private String filename;
