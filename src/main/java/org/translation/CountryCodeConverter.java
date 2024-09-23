@@ -35,7 +35,6 @@ public class CountryCodeConverter {
             List<String> lines = Files.readAllLines(Paths.get(Objects.requireNonNull(getClass()
                     .getClassLoader().getResource(filename)).toURI()));
 
-            // Task: use lines to populate the instance variable(s)
             countryToCode = new HashMap<>();
             codeToCountry = new HashMap<>();
             for (String line : lines) {
