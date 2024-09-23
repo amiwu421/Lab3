@@ -3,10 +3,6 @@ package org.translation;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO Task: modify this class so that it also supports the Spanish language code "es" and
-//            one more language code of your choice. Each member of your group should add
-//            support for one additional langauge code on a branch; then push and create a pull request on GitHub.
-
 // Extra Task: if your group has extra time, you can add support for another country code in this class.
 
 /**
@@ -26,14 +22,11 @@ public class InLabByHandTranslator implements Translator {
 
     @Override
     public List<String> getCountryLanguages(String country) {
-        // TODO Checkstyle: The String "can" appears 4 times in the file.
         if (CANADA.equals(country)) {
-            return new ArrayList<>(List.of("de", "en", "zh"));
+            return new ArrayList<>(List.of("de", "en", "zh", "es", "fa", "hy"));
         }
         return new ArrayList<>();
     }
-
-    // TODO Checkstyle: Static variable definition in wrong order.
 
     /**
      * Returns the country abbreviations for all countries whose translations are
@@ -53,25 +46,29 @@ public class InLabByHandTranslator implements Translator {
      * @param language the language
      * @return the name of the country in the given language or null if no translation is available
      */
-
     @Override
     public String translate(String country, String language) {
-        // TODO Checkstyle: Return count is 5 (max allowed for non-void methods/ lambdas is 2).
-        if (!country.equals(CANADA)) {
-            return null;
-        }
-        String returnval;
-        if ("de".equals(language)) {
-            returnval = "Kanada";
-        }
-        else if ("en".equals(language)) {
-            returnval = "Canada";
-        }
-        else if ("zh".equals(language)) {
-            returnval = "加拿大";
-        }
-        else {
-            returnval = null;
+        String returnval = null;
+        if (country.equals(CANADA)) {
+            if ("de".equals(language)) {
+                returnval = "Kanada";
+            }
+            else if ("en".equals(language)) {
+                returnval = "Canada";
+            }
+            else if ("zh".equals(language)) {
+                returnval = "加拿大";
+            }
+            else if ("es".equals(language)) {
+                returnval = "Canadá";
+            }
+            else if ("fa".equals(language)) {
+                returnval = "کانادا";
+            }
+            else if ("hy".equals(language)) {
+                returnval = "Կանադա";
+            }
+            return returnval;
         }
         return returnval;
     }
