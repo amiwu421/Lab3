@@ -14,6 +14,8 @@ import java.util.Map;
 public class LanguageCodeConverter {
 
     // TODO Task: pick appropriate instance variables to store the data necessary for this class
+    private Map<String, String> codeToLang = new HashMap<>();
+    private Map<String, String> langToCode = new HashMap<>();
 
     /**
      * Default constructor which will load the language codes from "language-codes.txt"
@@ -36,7 +38,13 @@ public class LanguageCodeConverter {
 
             // TODO Task: use lines to populate the instance variable
             //           tip: you might find it convenient to create an iterator using lines.iterator()
-            // x TODO Checkstyle: '}' on next line should be alone on a line.
+            for (String line : lines) {
+                String[] parts = line.split("\t");
+                if (parts.length == 2) {
+                    langToCode.put(parts[0].trim(), parts[1].trim());
+                    codeToLang.put(parts[1].trim(), parts[0].trim());
+                }
+            }
         }
         catch (IOException | URISyntaxException ex) {
             throw new RuntimeException(ex);
@@ -51,7 +59,7 @@ public class LanguageCodeConverter {
      */
     public String fromLanguageCode(String code) {
         // TODO Task: update this code to use your instance variable to return the correct value
-        return code;
+        return codeToLang.get(code);
     }
 
     /**
@@ -61,7 +69,7 @@ public class LanguageCodeConverter {
      */
     public String fromLanguage(String language) {
         // TODO Task: update this code to use your instance variable to return the correct value
-        return language;
+        return langToCode.get(language);
     }
 
     /**
@@ -70,6 +78,6 @@ public class LanguageCodeConverter {
      */
     public int getNumLanguages() {
         // TODO Task: update this code to use your instance variable to return the correct value
-        return 0;
+        return codeToLang.size();
     }
 }
