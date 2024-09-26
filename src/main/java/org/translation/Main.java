@@ -1,5 +1,7 @@
 package org.translation;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -71,17 +73,27 @@ public class Main {
     // Note: CheckStyle is configured so that we don't need javadoc for private methods
     private static String promptForCountry(Translator translator) {
         List<String> countries = translator.getCountries();
+
+        // TODO Task: convert the country codes to the actual country names before sorting
+
+        for (int i = 0; i < countries.size(); i++) {
+            String countryName = new CountryCodeConverter().fromCountryCode(countries.get(i));
+            countries.set(i, countryName);
+        }
         // TODO Task: replace the following println call, sort the countries alphabetically,
         //            and print them out; one per line
         //      hint: class Collections provides a static sort method
-        // TODO Task: convert the country codes to the actual country names before sorting
-        System.out.println(countries);
+        // System.out.println(countries);
+        countries.sort(Comparator.naturalOrder());
+
+        for (String country: countries) {
+            System.out.println(country);
+        }
 
         System.out.println("select a country from above:");
 
         Scanner s = new Scanner(System.in);
         return s.nextLine();
-
     }
 
     // Note: CheckStyle is configured so that we don't need javadoc for private methods
