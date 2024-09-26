@@ -61,7 +61,12 @@ public class CountryCodeConverter {
     public String fromCountryCode(String code) {
         return codeToCountry.get(code);
     }
-
+    public Map<String, String> getCodeToCountry() {
+        return codeToCountry;
+    }
+    public Map<String, String> getCountryToCode() {
+        return countryToCode;
+    }
     /**
      * Returns the code of the country for the given country name.
      * @param country the name of the country
