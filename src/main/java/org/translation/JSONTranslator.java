@@ -18,9 +18,9 @@ import org.json.JSONObject;
  */
 public class JSONTranslator implements Translator {
 
-    private final Map<String, Map<String, String>> translations = new HashMap<>();
-    private final Map<String, List<String>> codeTolanguages = new HashMap<>();
-    private final List<String> countryCodes = new ArrayList<>();
+    private Map<String, Map<String, String>> translations = new HashMap<>();
+    private Map<String, List<String>> codeTolanguages = new HashMap<>();
+    private List<String> countryCodes = new ArrayList<>();
 
     /**
      * Constructs a JSONTranslator using data from the sample.json resources file.
@@ -37,7 +37,6 @@ public class JSONTranslator implements Translator {
     public JSONTranslator(String filename) {
         // read the file to get the data to populate things...
         try {
-
             String jsonString = Files.readString(Paths.get(getClass().getClassLoader().getResource(filename).toURI()));
             JSONArray jsonArray = new JSONArray(jsonString);
             // in place to shut CheckStyle up
@@ -56,8 +55,8 @@ public class JSONTranslator implements Translator {
                     }
 
                 }
-                translations.put(tmpJsonObject.getString(a3), languageMap);
-                codeTolanguages.put(tmpJsonObject.getString(a3), languages);
+                translations.put(tmpJsonObject.getString(a3).toUpperCase(), languageMap);
+                codeTolanguages.put(tmpJsonObject.getString(a3).toUpperCase(), languages);
             }
 
         }
@@ -78,6 +77,7 @@ public class JSONTranslator implements Translator {
 
     @Override
     public String translate(String country, String language) {
+
         Map<String, String> languageMap = translations.get(country);
         if (languageMap != null) {
             return languageMap.get(language);

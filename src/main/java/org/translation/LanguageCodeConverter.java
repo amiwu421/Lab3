@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,9 +14,8 @@ import java.util.Map;
  */
 public class LanguageCodeConverter {
 
-    // TODO Task: pick appropriate instance variables to store the data necessary for this class
-    private Map<String, String> codeToLang = new HashMap<>();
-    private Map<String, String> langToCode = new HashMap<>();
+    private final Map<String, String> codeToLang = new HashMap<>();
+    private final Map<String, String> langToCode = new HashMap<>();
 
     /**
      * Default constructor which will load the language codes from "language-codes.txt"
@@ -38,12 +38,9 @@ public class LanguageCodeConverter {
 
             for (int i = 1; i < lines.size(); i++) {
                 String[] parts = lines.get(i).split("\t");
-                langToCode.put(parts[1], parts[0]);
-                codeToLang.put(parts[0], parts[1]);
-                //                if (parts.length == 2) {
-                //                    langToCode.put(parts[0].trim(), parts[1].trim());
-                //                    codeToLang.put(parts[1].trim(), parts[0].trim());
-                //                }
+                if (parts.length == 2) {
+                    langToCode.put(parts[0].trim(), parts[1].trim());
+                    codeToLang.put(parts[1].trim(), parts[0].trim());}
             }
         }
         catch (IOException | URISyntaxException ex) {
@@ -58,7 +55,7 @@ public class LanguageCodeConverter {
      * @return the name of the language corresponding to the code
      */
     public String fromLanguageCode(String code) {
-        return langToCode.get(code);
+        return codeToLang.get(code);
     }
 
     /**
@@ -67,7 +64,7 @@ public class LanguageCodeConverter {
      * @return the 2-letter code of the language
      */
     public String fromLanguage(String language) {
-        return codeToLang.get(language);
+        return langToCode.get(language);
     }
 
     /**

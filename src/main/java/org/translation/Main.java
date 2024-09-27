@@ -28,9 +28,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Translator translator = new JSONTranslator(null);
-        // Translator translator = new InLabByHandTranslator();
-
+        Translator translator = new JSONTranslator();
         runProgram(translator);
     }
 
@@ -55,7 +53,7 @@ public class Main {
             }
 
             LanguageCodeConverter languageConverter = new LanguageCodeConverter();
-            String translatedCountry = translator.translate(country, languageConverter.fromLanguage(language));
+            String translatedCountry = translator.translate(converter.fromCountry(country), languageConverter.fromLanguage(language));
             System.out.println(country + " in " + language + " is " + translatedCountry);
             System.out.println("Press enter to continue or quit to exit.");
             Scanner s = new Scanner(System.in);
