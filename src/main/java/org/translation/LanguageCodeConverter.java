@@ -38,12 +38,12 @@ public class LanguageCodeConverter {
 
             for (int i = 1; i < lines.size(); i++) {
                 String[] parts = lines.get(i).split("\t");
-                langToCode.put(parts[1],parts[0]);
-                codeToLang.put(parts[0],parts[1]);
-//                if (parts.length == 2) {
-//                    langToCode.put(parts[0].trim(), parts[1].trim());
-//                    codeToLang.put(parts[1].trim(), parts[0].trim());
-//                }
+                langToCode.put(parts[1], parts[0]);
+                codeToLang.put(parts[0], parts[1]);
+                //                if (parts.length == 2) {
+                //                    langToCode.put(parts[0].trim(), parts[1].trim());
+                //                    codeToLang.put(parts[1].trim(), parts[0].trim());
+                //                }
             }
         }
         catch (IOException | URISyntaxException ex) {

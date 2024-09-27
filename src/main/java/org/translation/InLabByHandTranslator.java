@@ -48,28 +48,28 @@ public class InLabByHandTranslator implements Translator {
      */
     @Override
     public String translate(String country, String language) {
-        String returnval = null;
+        String res = null;
         if (country.equals(CANADA)) {
             if ("de".equals(language)) {
-                returnval = "Kanada";
+                res = "Kanada";
             }
             else if ("en".equals(language)) {
-                returnval = "Canada";
+                res = "Canada";
             }
             else if ("zh".equals(language)) {
-                returnval = "加拿大";
+                res = "加拿大";
             }
             else if ("es".equals(language)) {
-                returnval = "Canadá";
+                res = "Canadá";
             }
             else if ("fa".equals(language)) {
-                returnval = "کانادا";
+                res = "کانادا";
             }
             else if ("hy".equals(language)) {
-                returnval = "Կանադա";
+                res = "Կանադա";
             }
-            return returnval;
+            return res;
         }
-        return returnval;
+        return res;
     }
 }

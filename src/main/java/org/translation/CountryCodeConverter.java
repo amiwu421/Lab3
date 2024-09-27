@@ -57,12 +57,23 @@ public class CountryCodeConverter {
     public String fromCountryCode(String code) {
         return codeToCountry.get(code.toUpperCase());
     }
+
+    /**
+     * Returns the whole codeToCountry map.
+     * @return the whole codeToCountry map.
+    */
     public Map<String, String> getCodeToCountry() {
         return codeToCountry;
     }
+
+    /**
+     * Returns to whole countryToCode map.
+     * @return countryToCode map.
+     */
     public Map<String, String> getCountryToCode() {
         return countryToCode;
     }
+
     /**
      * Returns the code of the country for the given country name.
      * @param country the name of the country
