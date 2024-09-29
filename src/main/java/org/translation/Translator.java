@@ -6,6 +6,7 @@ import java.util.List;
  * An interface providing methods related to translating country names between
  * different languages.<br/>
  */
+
 public interface Translator {
 
     /**

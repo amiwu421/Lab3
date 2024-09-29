@@ -11,6 +11,7 @@ import org.json.JSONObject;
 /**
  * A minimal example of reading and using the JSON data from resources/sample.json.
  */
+
 public class JSONTranslationExample {
 
     public static final int CANADA_INDEX = 30;

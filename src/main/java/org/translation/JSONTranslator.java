@@ -16,6 +16,7 @@ import org.json.JSONObject;
  * An implementation of the Translator interface which reads in the translation
  * data from a JSON file. The data is read in once each time an instance of this class is constructed.
  */
+
 public class JSONTranslator implements Translator {
 
     private Map<String, Map<String, String>> translations = new HashMap<>();

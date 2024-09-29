@@ -14,6 +14,7 @@ import java.util.Scanner;
  * - output the translation<br/>
  * - at any time, the user can type quit to quit the program<br/>
  */
+
 public class Main {
     /**
      * Command used to quit the program.

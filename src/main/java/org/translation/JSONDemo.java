@@ -7,6 +7,7 @@ import org.json.JSONObject;
  * Example working with JSON data. The data consists of an array with two objects in it.
  * Each object has two key-value pairs in it.
  */
+
 public class JSONDemo {
     /**
      * A first example of working with JSON data.
