@@ -39,8 +39,8 @@ public class CountryCodeConverter {
             codeToCountry = new HashMap<>();
             for (int i = 1; i < lines.size(); i++) {
                 String[] parts = lines.get(i).split("\t");
-                codeToCountry.put(parts[2], parts[0]);
-                countryToCode.put(parts[0], parts[2]);
+                codeToCountry.put(parts[2].trim(), parts[0].trim());
+                countryToCode.put(parts[0].trim(), parts[2].trim());
             }
         }
         catch (IOException | URISyntaxException ex) {
